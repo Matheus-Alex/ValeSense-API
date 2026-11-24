@@ -1,0 +1,407 @@
+﻿/* Identidade compartilhada das áreas e contraste do modo claro. */
+.role-label,
+.pe-profile-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin-left: 4px;
+  padding-left: 14px;
+  border-left: 1px solid #a7bd8a;
+  color: #496d35;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+html:not(.dark-theme) body {
+  color: #30392d;
+}
+html:not(.dark-theme)
+  :is(
+    h1,
+    h2,
+    h3,
+    .brand,
+    .pe-heading h1,
+    .pe-section-title,
+    .nav-group > summary,
+    .section-title,
+    .card-title
+  ) {
+  color: #365c2e;
+}
+html:not(.dark-theme) :is(.role-label, .pe-profile-label) {
+  color: #496d35;
+}
+html:not(.dark-theme) :is(.nav-item.active, .pe-nav-link.active) {
+  color: #315b2b;
+  font-weight: 600;
+}
+html:not(.dark-theme) :is(.nav-item.active, .pe-nav-link.active) img {
+  opacity: 1;
+}
+html:not(.dark-theme) :is(.nav-item, .pe-nav-link):not(.active) img,
+html:not(.dark-theme) :is(.nav-item, .pe-nav-link):not(.active) svg {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(1250%)
+    hue-rotate(54deg) brightness(78%) contrast(91%) !important;
+}
+
+/* Contraste uniforme dos ícones da navegação lateral nos dois temas. */
+html:not(.dark-theme) :is(.nav-item, .pe-nav-link) img,
+html:not(.dark-theme) :is(.nav-item, .pe-nav-link) svg {
+  opacity: 1 !important;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(1250%)
+    hue-rotate(54deg) brightness(78%) contrast(91%) !important;
+}
+
+html.dark-theme :is(.nav-item, .pe-nav-link) img,
+html.dark-theme :is(.nav-item, .pe-nav-link) svg {
+  opacity: 1 !important;
+  filter: brightness(0) saturate(100%) invert(82%) sepia(8%) saturate(450%)
+    hue-rotate(48deg) brightness(93%) contrast(89%) !important;
+}
+
+@media (max-width: 620px) {
+  .role-label,
+  .pe-profile-label {
+    display: none;
+  }
+}
+/* Maior contraste e destaque dos textos secundários no tema claro. */
+html:not(.dark-theme) {
+  --pe-muted: #526846;
+  --texto-label: #526846;
+  --text-muted: #526846;
+  --muted: #526846;
+}
+
+html:not(.dark-theme) body {
+  color: #30392d;
+}
+html:not(.dark-theme)
+  :is(
+    .section-subtitle,
+    .setting-description,
+    .section-description,
+    .pe-heading p,
+    .pe-section-head p,
+    .pe-panel-heading p,
+    .pe-stat-label,
+    .pe-stat-note,
+    .pe-reading small,
+    .pe-inline-meta,
+    .pe-empty,
+    .pe-loading,
+    .pe-row-main small,
+    .pe-plot-card .pe-property,
+    .pe-plot-metrics span,
+    .pe-timeline-copy small,
+    .pe-table th,
+    .pe-field label,
+    .pe-field legend,
+    .nav-item:not(.active),
+    .pe-nav-link:not(.active),
+    .monitor-kpi span,
+    .monitor-list p,
+    .user-table th
+  ) {
+  color: #526846;
+}
+
+html:not(.dark-theme) :is(input, select, textarea)::placeholder {
+  color: #617552;
+  opacity: 1;
+}
+
+html.dark-theme {
+  color-scheme: dark;
+}
+
+/* Destaque uniforme para ícones que acompanham títulos de página. */
+.page-title-icon {
+  box-sizing: border-box;
+  width: 36px !important;
+  height: 36px !important;
+  flex: 0 0 36px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(1250%)
+    hue-rotate(54deg) brightness(78%) contrast(91%) !important;
+}
+
+html.dark-theme .page-title-icon {
+  filter: brightness(0) saturate(100%) invert(82%) sepia(8%) saturate(450%)
+    hue-rotate(48deg) brightness(93%) contrast(89%) !important;
+}
+
+/* Shared dashboard shell matching the producer area. */
+body:has(.layout) {
+  color-scheme: light;
+  --pe-bg: #f2f4ed;
+  --pe-surface: #fff;
+  --pe-surface-soft: #e8eee0;
+  --pe-ink: #252b25;
+  --pe-muted: #687365;
+  --pe-line: #d4ddca;
+  --pe-green: #33512a;
+  --pe-green-2: #547547;
+  --pe-lime: #c6d78d;
+  --pe-shadow: 0 12px 30px #2837210b;
+  color: var(--pe-ink);
+  background: var(--pe-bg);
+}
+
+body:has(.layout) .topbar {
+  min-height: 66px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--pe-line);
+  background: var(--pe-surface);
+}
+
+body:has(.layout) .layout {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  padding: 24px;
+}
+
+body:has(.layout) .sidebar {
+  box-sizing: border-box;
+  position: sticky;
+  top: 82px;
+  width: auto;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--pe-line);
+  border-radius: 10px;
+  background: var(--pe-surface);
+  box-shadow: var(--pe-shadow);
+}
+
+body:has(.layout) .sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+body:has(.layout) .sidebar .nav-item {
+  box-sizing: border-box;
+  min-height: 42px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  color: var(--pe-muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+body:has(.layout) .sidebar .nav-item:hover,
+body:has(.layout) .sidebar .nav-item.active {
+  color: var(--pe-green);
+  background: var(--pe-surface-soft);
+}
+
+body:has(.layout) .sidebar .nav-item.active {
+  font-weight: 600;
+}
+body:has(.layout) .sidebar .nav-item.active img {
+  filter: none;
+}
+
+body:has(.layout) :is(.content, main) {
+  min-width: 0;
+  width: auto;
+  max-width: none;
+  margin: 0;
+}
+
+body:has(.layout) .card {
+  border-color: var(--pe-line);
+  border-radius: 9px;
+  background: var(--pe-surface);
+  box-shadow: var(--pe-shadow);
+}
+
+body:has(.layout) :is(.brand, .pe-brand) {
+  text-decoration: none;
+}
+
+body:has(.layout) :is(.brand, .pe-brand):hover {
+  text-decoration: none;
+}
+
+body:has(.layout) :is(.brand, .page-title, .section-title, .card-label) {
+  color: var(--pe-green);
+}
+
+body:has(.layout) :is(.role-label, .section-subtitle, .selected-day) {
+  color: var(--pe-muted);
+}
+
+body:has(.layout) .icon-btn {
+  border-color: var(--pe-line);
+  border-radius: 8px;
+  background: var(--pe-surface);
+  color: var(--pe-green);
+}
+
+body:has(.layout) .icon-btn:hover {
+  background: var(--pe-surface-soft);
+}
+
+html.dark-theme body:has(.layout) {
+  --pe-surface: #252a27;
+  --pe-surface-soft: #343d35;
+  --pe-ink: #e3e7e3;
+  --pe-muted: #b9c1b8;
+  --pe-line: #475048;
+  --pe-green: #e3e7e3;
+  --pe-shadow: none;
+  color: var(--pe-ink);
+  background: #252a27;
+}
+
+html.dark-theme body:has(.layout) :is(.topbar, .sidebar, .card, .icon-btn) {
+  border-color: var(--pe-line);
+  background: var(--pe-surface);
+  color: var(--pe-ink);
+  box-shadow: none;
+}
+
+html.dark-theme
+  body:has(.layout)
+  :is(.brand, .page-title, .section-title, .card-label) {
+  color: var(--pe-ink);
+}
+html.dark-theme
+  body:has(.layout)
+  :is(.role-label, .section-subtitle, .selected-day) {
+  color: var(--pe-muted);
+}
+html.dark-theme body:has(.layout) .sidebar .nav-item {
+  color: var(--pe-muted);
+}
+html.dark-theme body:has(.layout) .sidebar .nav-item:hover,
+html.dark-theme body:has(.layout) .sidebar .nav-item.active {
+  color: var(--pe-ink);
+  background: var(--pe-surface-soft);
+}
+
+@media (max-width: 780px) {
+  body:has(.layout) .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  body:has(.layout) .sidebar {
+    position: static;
+    width: 100%;
+  }
+  body:has(.layout) .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 620px) {
+  body:has(.layout) .topbar {
+    min-height: 58px;
+    padding: 12px 16px;
+  }
+  body:has(.layout) .layout {
+    gap: 18px;
+    padding: 16px 12px 34px;
+  }
+}
+
+body:has(.pe-layout) :is(.brand, .pe-brand) {
+  text-decoration: none;
+}
+
+body:has(.pe-layout) :is(.brand, .pe-brand):hover {
+  text-decoration: none;
+}
+
+.chatbot-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 42px;
+  margin-top: 12px;
+  padding: 9px 12px;
+  border: 1px solid var(--pe-line, #d4ddca);
+  border-radius: 8px;
+  background: var(--pe-surface-soft, #e8eee0);
+  color: var(--pe-green, #33512a);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.chatbot-button svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+html.dark-theme .chatbot-button {
+  border-color: #475048;
+  background: #343d35;
+  color: #e3e7e3;
+}
+
+body:has(.pe-layout) .pe-sidebar,
+body:has(.layout) .sidebar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  min-width: 0;
+}
+
+body:has(.pe-layout) .pe-nav,
+body:has(.layout) .sidebar nav {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+}
+
+body:has(.pe-layout) .pe-nav-link,
+body:has(.layout) .sidebar .nav-item,
+body:has(.pe-layout) .chatbot-button,
+body:has(.layout) .chatbot-button {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  margin-inline: 0;
+}
+
+body:has(.pe-layout) .pe-nav-link,
+body:has(.layout) .sidebar .nav-item {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 780px) {
+  body:has(.pe-layout) .pe-sidebar,
+  body:has(.layout) .sidebar {
+    width: 100%;
+  }
+
+  body:has(.pe-layout) .pe-nav,
+  body:has(.layout) .sidebar nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  body:has(.pe-layout) .pe-nav-link,
+  body:has(.layout) .sidebar .nav-item {
+    width: auto;
+  }
+}

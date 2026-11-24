@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="../../theme.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ValeSense | Administrador</title>
+    <link rel="stylesheet" href="Home.css?v=20261121-card-titles" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../role-visual.css?v=20261121-title-icons-clean" />
+    <link rel="stylesheet" href="../admin-sidebar.css?v=20261121-icons" />
+  </head>
+  <body data-login-path="../Login/Login.html">
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand-logo" src="/shared/assets/Logo.svg" alt="" />ValeSense
+      </div>
+      <span class="role-label">&#193;rea do administrador</span>
+      <div class="topbar-actions">
+        <a
+          class="icon-btn"
+          href="../Configuracoes/Configuracoes.html"
+          aria-label="Configurações"
+          title="Configurações"
+          ><img class="action-icon" src="/shared/assets/Config.svg" alt=""
+        /></a>
+        <button
+          class="icon-btn"
+          id="scrollTopBtn"
+          type="button"
+          aria-label="Voltar ao topo"
+          title="Voltar ao topo"
+        >
+          <img class="action-icon" src="/shared/assets/Seta.svg" alt="" />
+        </button>
+        <button
+          class="icon-btn"
+          type="button"
+          data-theme-toggle
+          aria-label="Alternar tema"
+          title="Alternar tema"
+          aria-pressed="false"
+        >
+          <img data-theme-icon src="/shared/assets/Lua.svg" alt="" />
+        </button>
+        <button
+          class="icon-btn logout-action"
+          type="button"
+          data-logout
+          aria-label="Sair"
+          title="Sair"
+        >
+          <img class="logout-icon" src="/shared/assets/Sair.svg" alt="" /><span
+            >Sair</span
+          >
+        </button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <nav class="admin-nav" aria-label="Navegação administrativa">
+          <!-- Navegação preenchida pelo admin-sidebar.js -->
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section class="page-section" aria-labelledby="admin-title">
+          <h1 class="page-title" id="admin-title">
+            <img
+              class="page-title-icon"
+              src="/shared/assets/Dashboard.svg"
+              alt=""
+            />Visão geral
+          </h1>
+          <p class="section-subtitle">
+            Acompanhe usuários, sensores, leituras e alertas em um só lugar.
+          </p>
+
+          <div class="monitor-kpis">
+            <article class="card monitor-kpi">
+              <span>Usuários ativos</span
+              ><strong id="activeUsersCount">--</strong>
+            </article>
+            <article class="card monitor-kpi">
+              <span>Sensores ativos</span
+              ><strong id="activeSensorsCount">--</strong>
+            </article>
+            <article class="card monitor-kpi">
+              <span>Leituras nas últimas 24 horas</span
+              ><strong id="readingsCount">--</strong>
+            </article>
+            <article class="card monitor-kpi">
+              <span>Alertas em aberto</span
+              ><strong id="openAlertsCount">--</strong>
+            </article>
+          </div>
+
+          <div class="monitor-grid">
+            <article class="card">
+              <div class="card-header-row">
+                <h2 class="card-label">Sensores</h2>
+                <a
+                  class="link-secondary"
+                  href="../Sensores/Sensores.html?v=20261121-sensores-v3"
+                  >Ver sensores</a
+                >
+              </div>
+              <div id="monitorSensorList" class="monitor-list">
+                <p>Carregando sensores...</p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header-row">
+                <h2 class="card-label">Alertas recentes</h2>
+                <a
+                  class="link-secondary"
+                  href="../Alertas/Alertas.html?v=20261121-mercado-alertas-v1"
+                  >Ver alertas</a
+                >
+              </div>
+              <div id="monitorAlertList" class="monitor-list">
+                <p>Carregando alertas...</p>
+              </div>
+            </article>
+          </div>
+          <article class="card operational-chart-card">
+            <div class="card-header-row">
+              <h2 class="card-label">Resumo operacional</h2>
+            </div>
+            <div class="operational-chart-grid">
+              <section>
+                <h3>Usuários por perfil</h3>
+                <div class="chart-wrapper">
+                  <canvas id="usersRoleChart"></canvas>
+                </div>
+              </section>
+              <section>
+                <h3>Sensores por status</h3>
+                <div class="chart-wrapper">
+                  <canvas id="sensorsStatusChart"></canvas>
+                </div>
+              </section>
+            </div>
+            <p id="operationalChartNote" class="chart-note" role="status">
+              Carregando dados do banco...
+            </p>
+          </article>
+          <article class="card" id="usuarios">
+            <div class="card-header-row">
+              <h2 class="card-label">Usuários</h2>
+              <button
+                id="addUserBtn"
+                class="btn-primary btn-small"
+                type="button"
+              >
+                <img src="/shared/assets/Lapis.svg" alt="" aria-hidden="true" />Novo
+                usu&aacute;rio
+              </button>
+            </div>
+            <div class="table-scroll">
+              <table id="userTableBodyTable" class="user-table">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Perfil</th>
+                    <th>Status</th>
+                    <th>A&ccedil;&otilde;es</th>
+                  </tr>
+                </thead>
+                <tbody id="userTableBody">
+                  <tr>
+                    <td colspan="4">Carregando usu&aacute;rios...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../../api-config.js"></script>
+    <script src="../../api-client.js"></script>
+    <script src="/shared/auth-guard.js"></script>
+    <script src="../../analista-de-dados/Dashboard/chart.umd.min.js"></script>
+    <script src="Home.js?v=20261121-charts"></script>
+    <script src="../admin-sidebar.js?v=20261121-sidebar-v4"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+/* Formulários e tabelas do portal no padrão da Home do produtor. */
+#content { display:grid; gap:16px; min-width:0; }
+#content > section { min-width:0; padding:18px; border:1px solid var(--pe-line); border-radius:9px; background:var(--pe-surface); box-shadow:var(--pe-shadow); overflow-x:auto; }
+#content h2 { margin:0 0 14px; border-left:3px solid var(--pe-green-2); padding-left:8px; color:var(--pe-green); font-size:15px; font-weight:700; }
+#content p,#message { font-size:13px; line-height:1.5; }
+#message:empty { display:none; }
+#message { white-space:pre-wrap; }
+#content table { width:100%; border-collapse:collapse; text-align:left; }
+#content th,#content td { padding:11px 12px; border-bottom:1px solid var(--pe-line); font-size:13px; color:var(--pe-ink); }
+#content th { color:var(--pe-muted); font-size:10px; font-weight:700; text-transform:uppercase; }
+#content form { display:grid; gap:14px; max-width:650px; }
+#content label { display:grid; gap:6px; color:var(--pe-ink); font-size:13px; }
+#content input,#content select { width:100%; min-width:0; min-height:40px; padding:8px 11px; border:1px solid var(--pe-line); border-radius:7px; background:var(--pe-surface); color:var(--pe-ink); }
+#content input:focus-visible,#content select:focus-visible { outline:2px solid var(--pe-green-2); outline-offset:2px; }
+#content button { justify-self:start; min-height:40px; padding:9px 14px; border:1px solid var(--pe-green); border-radius:7px; background:var(--pe-green); color:var(--pe-surface); font-size:12px; font-weight:700; cursor:pointer; }
+#content button:hover { background:var(--pe-green-2); }
+#content button:disabled { opacity:.6; cursor:wait; }
+@media(max-width:620px) { #content > section { padding:15px; } }

@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <script src="../../theme.js"></script>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ValeSense | Home do produtor</title>
+    <link rel="stylesheet" href="Home.css?v=20261121-producer-title-icons" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../role-visual.css?v=20261121-title-icons-clean">
+  <link rel="stylesheet" href="../../open-meteo-chart.css">
+  <link rel="stylesheet" href="../analista-layout.css">
+</head>
+  <body data-login-path="../../analista-de-dados/Login/Login.html">
+    <header class="pe-topbar">
+      <a class="pe-brand" href="Home.html?v=20261121-producer-home-v2"
+        ><img
+          src="/shared/assets/Logo.svg"
+          alt=""
+        />ValeSense</a
+      >
+      <span class="pe-profile-label">Área do produtor e exportador</span>
+      <div class="pe-top-actions">
+        <a
+          class="pe-icon-button"
+          href="../Configuracoes/Configuracoes.html"
+          aria-label="Configurações"
+          title="Configurações"
+          ><img
+            src="/shared/assets/Config.svg"
+            alt=""
+        /></a>
+        <button
+          class="pe-icon-button"
+          type="button"
+          data-scroll-top
+          aria-label="Voltar ao topo"
+          title="Voltar ao topo"
+        >
+          <img src="/shared/assets/Seta.svg" alt="" />
+        </button>
+        <button
+          class="pe-icon-button"
+          type="button"
+          data-theme-toggle
+          aria-label="Alternar tema"
+          title="Alternar tema"
+          aria-pressed="false"
+        >
+          <img class="theme-icon-light" src="/shared/assets/Lua.svg" alt="" />
+          <img class="theme-icon-dark" src="/shared/assets/Sol.svg" alt="" />
+        </button>
+        <button
+          class="pe-icon-button logout-action"
+          type="button"
+          data-logout
+          aria-label="Sair"
+          title="Sair"
+        >
+          <img class="logout-icon" src="/shared/assets/Sair.svg" alt="" /><span>Sair</span>
+        </button>
+      </div>
+    </header>
+    <div class="pe-layout">
+      <aside class="pe-sidebar">
+        <nav class="pe-nav" aria-label="Navegação principal">
+          <a class="pe-nav-link active" href="Home.html?v=20261121-producer-home-v2" aria-current="page"
+            ><img
+              src="/shared/assets/Home.svg"
+              alt=""
+            />Home</a
+          >
+          <a class="pe-nav-link" href="../Propriedades/Propriedades.html?v=20261121-producer-title-icons"
+            ><img
+              src="/shared/assets/Maps.svg"
+              alt=""
+            />Plantações</a
+          >
+          <a class="pe-nav-link" href="../Previsoes/Previsoes.html?v=20261121-producer-title-icons"
+            ><img
+              src="/shared/assets/Lupa.svg"
+              alt=""
+            />Safra</a
+          >
+          <a class="pe-nav-link" href="../Mercado/Mercado.html?v=20261121-producer-title-icons"
+            ><img
+              src="/shared/assets/Loja.svg"
+              alt=""
+            />Mercado</a
+          >
+          <a class="pe-nav-link" href="../Alertas/Alertas.html?v=20261121-producer-title-icons"
+            ><img
+              src="/shared/assets/Alerta.svg"
+              alt=""
+            />Alertas</a
+          >
+          <a class="pe-nav-link" href="../Configuracoes/Configuracoes.html"
+            ><img
+              src="/shared/assets/Config.svg"
+              alt=""
+            />Configurações</a
+          >
+        </nav>
+      </aside>
+      <main class="pe-content">
+        <div class="pe-heading">
+          <div>
+            <p class="pe-kicker">Visão da propriedade</p>
+            <h1 class="pe-icon-heading"><img class="page-title-icon" src="/shared/assets/Home.svg" alt="" />Home</h1>
+            <p>
+              Acompanhe leituras recentes, sensores e próximas janelas
+              cadastradas.
+            </p>
+          </div>
+        </div>
+        <section class="pe-grid pe-grid-3" aria-label="Resumo dos sensores">
+          <article class="pe-panel">
+            <p class="pe-stat-label">Sensores ativos</p>
+            <p class="pe-stat-value" id="activeCount">—</p>
+            <p class="pe-stat-note" id="sensorCountNote">
+              Consultando sensores cadastrados
+            </p>
+          </article>
+          <article class="pe-panel">
+            <p class="pe-stat-label">Última temperatura</p>
+            <p class="pe-stat-value" id="latestTemperature">—</p>
+            <p class="pe-stat-note" id="latestReadingTime">
+              Aguardando leitura registrada
+            </p>
+          </article>
+          <article class="pe-panel">
+            <p class="pe-stat-label">Próxima janela</p>
+            <p class="pe-stat-value" id="nextWindowDate">—</p>
+            <p class="pe-stat-note" id="nextWindowNote">
+              Aguardando previsões cadastradas
+            </p>
+          </article>
+        </section>
+        <div class="pe-section-head">
+          <div>
+            <h2 class="pe-section-title">Condições recentes</h2>
+            <p>Leitura mais recente disponível para os seus sensores.</p>
+          </div>
+          <a class="pe-button secondary" href="../Propriedades/Propriedades.html?v=20261121-producer-title-icons"
+            >Ver plantações</a
+          >
+        </div>
+        <section class="pe-grid pe-grid-2">
+          <article class="pe-panel">
+            <div class="pe-panel-heading">
+              <div>
+                <h2>Clima observado</h2>
+                <p id="readingSensor">Sem leitura carregada</p>
+              </div>
+              <span class="pe-badge info" id="readingStatus">Aguardando</span>
+            </div>
+            <div class="pe-grid pe-grid-2">
+              <div>
+                <p class="pe-stat-label">Temperatura</p>
+                <p class="pe-reading" id="weatherTemperature">
+                  — <small>°C</small>
+                </p>
+              </div>
+              <div>
+                <p class="pe-stat-label">Umidade</p>
+                <p class="pe-reading" id="weatherHumidity">
+                  — <small>%</small>
+                </p>
+              </div>
+            </div>
+            <p class="pe-inline-meta" id="readingTimestamp"></p>
+            <div class="pe-empty" id="weatherEmpty" hidden>
+              <p>Nenhuma leitura climática disponível no período consultado.</p>
+            </div>
+            <article class="pe-panel weather-precipitation-card">
+              <p class="pe-stat-label">Precipitação prevista nas próximas 24 horas</p>
+              <div class="weather-precipitation-content">
+                <div class="weather-precipitation-chart">
+                  <canvas data-weather-precipitation-chart aria-label="Gráfico de pizza da participação da precipitação prevista por hora" role="img"></canvas>
+                </div>
+                <ul class="weather-precipitation-legend" data-weather-legend aria-label="Precipitação por hora"></ul>
+              </div>
+              <p class="weather-precipitation-status" data-weather-status role="status">Aguardando previsão do clima...</p>
+            </article>
+            <section class="pe-panel" aria-labelledby="producerHistoryTitle">
+              <div class="pe-panel-heading">
+                <div>
+                  <h2 id="producerHistoryTitle">Histórico climático do banco</h2>
+                  <p>Leituras registradas pelos sensores da propriedade.</p>
+                </div>
+              </div>
+              <div class="producer-history-filters">
+                <label class="pe-row-main">
+                  <span class="pe-stat-label">Sensor</span>
+                  <select class="pe-select" id="producerHistorySensor" aria-label="Sensor do histórico">
+                    <option value="">Carregando sensores...</option>
+                  </select>
+                </label>
+                <label class="pe-row-main">
+                  <span class="pe-stat-label">Período</span>
+                  <select class="pe-select" id="producerHistoryPeriod" aria-label="Período do histórico">
+                    <option value="24">Últimas 24 horas</option>
+                    <option value="168" selected>Últimos 7 dias</option>
+                    <option value="720">Últimos 30 dias</option>
+                  </select>
+                </label>
+                <label class="pe-row-main">
+                  <span class="pe-stat-label">Variável</span>
+                  <select class="pe-select" id="producerHistoryMetric" aria-label="Variável climática">
+                    <option value="temperatura">Temperatura (°C)</option>
+                    <option value="umidade">Umidade (%)</option>
+                  </select>
+                </label>
+                <label class="pe-row-main">
+                  <span class="pe-stat-label">Tipo de gráfico</span>
+                  <select class="pe-select" id="producerHistoryType" aria-label="Tipo de gráfico">
+                    <option value="line">Linha</option>
+                    <option value="bar">Barras</option>
+                  </select>
+                </label>
+              </div>
+              <div class="pe-chart-wrap">
+                <canvas id="producerHistoryChart" aria-label="Histórico climático registrado no banco" role="img"></canvas>
+              </div>
+              <p class="pe-note" id="producerHistoryNote" role="status">Carregando leituras do banco...</p>
+            </section>
+          </article>
+          <article class="pe-panel">
+            <div class="pe-panel-heading">
+              <div>
+                <h2>Estado dos sensores</h2>
+                <p>Resumo dos sensores vinculados aos seus talhões.</p>
+              </div>
+            </div>
+            <div class="pe-list" id="sensorStatusList">
+              <p class="pe-loading">Carregando sensores...</p>
+            </div>
+          </article>
+        </section>
+        <div class="pe-section-head">
+          <div>
+            <h2 class="pe-section-title">Próxima previsão</h2>
+            <p>
+              Planejamento cadastrado, sem estimativa de volume de produção.
+            </p>
+          </div>
+          <a class="pe-button secondary" href="../Previsoes/Previsoes.html?v=20261121-producer-title-icons"
+            >Ver calendário</a
+          >
+        </div>
+        <section class="pe-panel" id="forecastPanel">
+          <p class="pe-loading">Carregando previsões...</p>
+        </section>
+        <p class="pe-note">
+          As condições observadas vêm das leituras dos sensores. A previsão de
+          precipitação usa a localização configurada no Open-Meteo; o sistema
+          não possui coordenadas para o mapa nem previsão de vento.
+        </p>
+      </main>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <script src="../../open-meteo-precipitation-chart.js"></script>
+    <script src="../../api-config.js"></script>
+    <script src="../../api-client.js"></script>
+    <script src="/shared/auth-guard.js"></script>
+    <script src="/shared/shared.js"></script>
+    <script src="Home.js"></script>
+  </body>
+</html>

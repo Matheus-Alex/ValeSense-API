@@ -1,0 +1,21 @@
+/* Correções de largura sem alterar a identidade das páginas. */
+.layout > .content, .layout > main { min-width:0; }
+.content .card { min-width:0; max-width:100%; }
+.content .card:has(table) { overflow-x:auto; }
+@media(max-width:780px) {
+ .layout { box-sizing:border-box; width:100%; }
+ .layout > .content, .layout > main { box-sizing:border-box; width:100%; min-width:0; }
+ .topbar { flex-wrap:wrap; }
+}
+body[data-analyst-settings] #content { display:grid; gap:16px; }
+body[data-analyst-settings] #content > section { padding:18px 20px; border:1px solid var(--linha); border-radius:16px; background:var(--branco); }
+body[data-analyst-settings] #content h2 { font-size:15px; margin:0 0 14px; }
+body[data-analyst-settings] form { display:grid; gap:14px; max-width:650px; }
+body[data-analyst-settings] label { display:grid; gap:6px; font-size:13px; }
+body[data-analyst-settings] input, body[data-analyst-settings] select { width:100%; min-width:0; box-sizing:border-box; font:inherit; padding:10px; border:1px solid var(--linha); border-radius:8px; background:var(--branco); color:var(--texto-corpo); }
+body[data-analyst-settings] form button { justify-self:start; padding:10px 16px; border:0; border-radius:8px; background:var(--verde-oliva); color:white; font:600 13px Poppins,sans-serif; cursor:pointer; }
+body[data-analyst-settings] #message:empty { display:none; }
+body[data-analyst-settings] :focus-visible { outline:2px solid var(--verde-escuro); outline-offset:2px; }
+
+.layout > main .card { min-width:0; max-width:100%; overflow-x:auto; }
+

@@ -1,0 +1,358 @@
+:root {
+  --bg: #f2f4ed;
+  --surface: #ffffff;
+  --surface-soft: #e8eee0;
+  --line: #d4ddca;
+  --text: #30392d;
+  --muted: #526846;
+  --green: #33512a;
+  --accent: #a9bb84;
+  --accent-hover: #98ab74;
+  --danger: #b3413a;
+  --danger-soft: #f3dedc;
+  --branco: #ffffff;
+  --linha: #d4ddca;
+  --texto-corpo: #30392d;
+  --texto-label: #526846;
+  --verde-escuro: #33512a;
+  --verde-claro: #e8eee0;
+  --verde-oliva: #a9bb84;
+  --verde-oliva-hover: #98ab74;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  color: var(--text);
+  background: linear-gradient(to bottom, #ffffff 0%, #edf1e4 55%, #d9e3c6 100%);
+}
+
+.topbar {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 66px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.brand-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.role-label {
+  margin-left: 4px;
+  padding-left: 14px;
+  border-left: 1px solid #a7bd8a;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--green);
+  cursor: pointer;
+}
+
+.topbar-actions .icon-btn > img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(1250%)
+    hue-rotate(54deg) brightness(78%) contrast(91%);
+}
+
+.logout-action {
+  width: auto;
+  min-width: 68px;
+  gap: 6px;
+  padding: 0 10px;
+  color: #a3433d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  padding: 24px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 96px;
+  width: 190px;
+  min-height: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-sizing: border-box;
+}
+
+.content {
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.page-section {
+  display: grid;
+  gap: 16px;
+  scroll-margin-top: 96px;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 0;
+  color: var(--green);
+  font-size: 20px;
+}
+
+.page-title-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(1250%)
+    hue-rotate(54deg) brightness(78%) contrast(91%);
+}
+
+.section-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.card {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.section-title {
+  margin: 0;
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 700;
+  border-left: 3px solid var(--accent);
+  padding-left: 8px;
+}
+
+.sensor-list {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.sensor-block {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+}
+
+.sensor-name {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.sensor-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sensor-status {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  min-height: 46px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.sensor-status.ok {
+  background: var(--surface-soft);
+  color: var(--green);
+}
+
+.sensor-status.danger {
+  background: var(--danger-soft);
+  color: #7a2a24;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  flex: 0 0 40px;
+}
+
+.toggle input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.toggle-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: #c9d3b8;
+  transition: background 0.15s ease;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 25%);
+  transition: transform 0.15s ease;
+}
+
+.toggle input:checked + .toggle-track {
+  background: var(--accent);
+}
+
+.toggle input:checked + .toggle-track .toggle-thumb {
+  transform: translateX(18px);
+}
+
+.btn-add-sensor {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #ffffff;
+  font:
+    700 14px Poppins,
+    sans-serif;
+  cursor: pointer;
+}
+
+.btn-add-sensor:hover {
+  background: var(--accent-hover);
+}
+
+.btn-add-sensor img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+html.dark-theme {
+  --bg: #1a1d1b;
+  --surface: #252a27;
+  --surface-soft: #343d35;
+  --line: #475048;
+  --text: #e3e7e3;
+  --muted: #b9c1b8;
+  --green: #e3e7e3;
+  --danger-soft: #482f2d;
+  --branco: #252a27;
+  --linha: #475048;
+  --texto-corpo: #e3e7e3;
+  --texto-label: #b9c1b8;
+  --verde-escuro: #e3e7e3;
+  --verde-claro: #343d35;
+  color-scheme: dark;
+}
+
+html.dark-theme body {
+  background: linear-gradient(to bottom, #1a1d1b 0%, #252a27 55%, #2b302d 100%);
+  color: var(--text);
+}
+
+html.dark-theme .topbar,
+html.dark-theme .sidebar,
+html.dark-theme .card,
+html.dark-theme .sensor-block,
+html.dark-theme .icon-btn {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+html.dark-theme .topbar-actions .icon-btn > img,
+html.dark-theme .page-title-icon {
+  filter: brightness(0) saturate(100%) invert(82%) sepia(8%) saturate(450%)
+    hue-rotate(48deg) brightness(93%) contrast(89%);
+}
+
+@media (max-width: 780px) {
+  .topbar {
+    gap: 12px;
+    min-height: 58px;
+    padding: 12px 16px;
+  }
+
+  .role-label {
+    display: none;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+  }
+}

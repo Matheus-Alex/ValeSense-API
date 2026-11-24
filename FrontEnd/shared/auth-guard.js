@@ -1,0 +1,1 @@
+void window.ValeSenseSession.requireRole();

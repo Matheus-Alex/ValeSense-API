@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ValeSense | Administrador — Histórico de leituras</title>
+    <script src="../../theme.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Home/Home.css?v=20261121-card-titles" />
+    <link rel="stylesheet" href="../../role-visual.css?v=20261121-title-icons-clean" />
+    <link rel="stylesheet" href="../admin-sidebar.css?v=20261121-icons" />
+    <link rel="stylesheet" href="../admin-pages.css?v=20261121-card-titles" />
+  </head>
+  <body
+    data-login-path="../Login/Login.html"
+    data-page="readings"
+    data-admin-page
+  >
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand-logo" src="/shared/assets/Logo.svg" alt="" />ValeSense
+      </div>
+      <span class="role-label">&#193;rea do administrador</span>
+      <div class="topbar-actions">
+        <a
+          class="icon-btn"
+          href="../Configuracoes/Configuracoes.html"
+          aria-label="Configurações"
+          title="Configurações"
+          ><img class="action-icon" src="/shared/assets/Config.svg" alt=""
+        /></a>
+        <button
+          class="icon-btn"
+          id="scrollTopBtn"
+          type="button"
+          aria-label="Voltar ao topo"
+          title="Voltar ao topo"
+        >
+          <img class="action-icon" src="/shared/assets/Seta.svg" alt="" />
+        </button>
+        <button
+          class="icon-btn"
+          type="button"
+          data-theme-toggle
+          aria-label="Alternar tema"
+          title="Alternar tema"
+          aria-pressed="false"
+        >
+          <img data-theme-icon src="/shared/assets/Lua.svg" alt="" />
+        </button>
+        <button
+          class="icon-btn logout-action"
+          type="button"
+          data-logout
+          aria-label="Sair"
+          title="Sair"
+        >
+          <img class="logout-icon" src="/shared/assets/Sair.svg" alt="" /><span
+            >Sair</span
+          >
+        </button>
+      </div>
+    </header>
+    <div class="layout">
+      <aside class="sidebar">
+        <nav aria-label="Navegação administrativa"></nav>
+      </aside>
+      <main class="content">
+        <section class="page-section">
+          <h1 class="page-title">Histórico de leituras</h1>
+          <p id="message" role="status" aria-live="polite"></p>
+          <div id="content"></div>
+        </section>
+      </main>
+    </div>
+    <script src="../../api-config.js"></script>
+    <script src="../../api-client.js"></script>
+    <script src="/shared/auth-guard.js"></script>
+    <script src="../admin-sidebar.js?v=20261121-sidebar-v4"></script>
+    <script src="../../portal.js"></script>
+    <script src="../admin-pages.js"></script>
+  </body>
+</html>

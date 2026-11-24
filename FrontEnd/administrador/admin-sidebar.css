@@ -1,0 +1,211 @@
+.admin-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  overflow: visible;
+  max-height: none;
+}
+.admin-sidebar-nav .admin-sidebar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+.admin-sidebar-heading {
+  margin: 0 0 4px;
+  padding: 4px 10px;
+  color: var(--pe-green, #33512a);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.admin-sidebar-nav .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  color: var(--pe-muted, #687365);
+  font-size: 12px;
+  line-height: 18px;
+  text-decoration: none;
+}
+.admin-sidebar-nav .nav-icon {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  object-fit: contain;
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(1250%)
+    hue-rotate(54deg) brightness(78%) contrast(91%) !important;
+}
+.admin-sidebar-nav .nav-item.active .nav-icon {
+  filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(1250%)
+    hue-rotate(54deg) brightness(78%) contrast(91%) !important;
+}
+.admin-sidebar-nav .nav-item:hover {
+  color: var(--pe-green, #33512a);
+  background: var(--pe-surface-soft, #e8eee0);
+}
+.admin-sidebar-nav .nav-item.active {
+  color: var(--pe-green, #33512a);
+  background: var(--pe-surface-soft, #e8eee0);
+  font-weight: 600;
+}
+.admin-sidebar {
+  box-sizing: border-box;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+html.dark-theme .admin-sidebar-heading {
+  color: #e3e7e3;
+}
+html.dark-theme .admin-sidebar-nav .nav-item {
+  color: #b9c1b8;
+}
+html.dark-theme .admin-sidebar-nav .nav-item:hover {
+  color: #e3e7e3;
+  background: #303632;
+}
+html.dark-theme .admin-sidebar-nav .nav-item.active {
+  color: #e3e7e3;
+  background: #343d35;
+}
+html.dark-theme .admin-sidebar-nav .nav-item img,
+html.dark-theme .admin-sidebar-nav .nav-item.active .nav-icon {
+  filter: brightness(0) saturate(100%) invert(82%) sepia(8%) saturate(450%)
+    hue-rotate(48deg) brightness(93%) contrast(89%) !important;
+}
+
+/* Layout compartilhado com o painel do Produtor. */
+.layout {
+  display: grid !important;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  padding: 24px;
+}
+.layout > .sidebar {
+  box-sizing: border-box;
+  width: 190px;
+  flex: 0 0 190px;
+  padding: 16px;
+  gap: 12px;
+  position: sticky;
+  top: 96px;
+}
+.layout > .content,
+.layout > main {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+.pe-layout {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: none;
+  margin: 0;
+  padding: 24px;
+}
+.pe-layout > .pe-sidebar {
+  box-sizing: border-box;
+  width: 190px;
+  flex: 0 0 190px;
+  padding: 16px;
+  position: sticky;
+  top: 96px;
+  align-self: flex-start;
+}
+.pe-layout > .pe-content {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+}
+.pe-layout .pe-nav {
+  display: block;
+  width: 100%;
+}
+@media (max-width: 780px) {
+  .layout,
+  .pe-layout {
+    flex-direction: column !important;
+    gap: 24px;
+    padding: 16px;
+  }
+  .layout > .sidebar,
+  .pe-layout > .pe-sidebar {
+    position: static;
+    width: 100%;
+    flex: 0 0 auto;
+  }
+  .layout > .content,
+  .layout > main,
+  .pe-layout > .pe-content {
+    width: 100%;
+  }
+}
+
+.pe-topbar {
+  gap: 24px;
+  min-height: 66px;
+  padding: 16px 24px;
+}
+.pe-brand {
+  gap: 8px;
+  font-size: 16px;
+}
+.pe-brand img {
+  width: 28px;
+  height: 28px;
+}
+.pe-profile-label {
+  margin-left: 0;
+  padding-left: 0;
+  border-left: 0;
+  font-size: 13px;
+}
+.pe-icon-button {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+}
+.pe-layout > .pe-sidebar {
+  border-radius: 14px;
+}
+@media (max-width: 620px) {
+  .pe-topbar {
+    gap: 12px;
+    min-height: 58px;
+    padding: 12px 16px;
+  }
+  .pe-profile-label {
+    display: none;
+  }
+}
+
+.admin-sidebar-nav .nav-item {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+.admin-sidebar-nav .nav-item.active,
+.admin-sidebar-nav .nav-item.active:hover {
+  color: var(--pe-green, #33512a);
+  background: var(--pe-surface-soft, #e8eee0);
+  font-weight: 600;
+}
+html.dark-theme .admin-sidebar-nav .nav-item.active,
+html.dark-theme .admin-sidebar-nav .nav-item.active:hover {
+  color: #e3e7e3;
+  background: #343d35;
+}
